@@ -953,6 +953,10 @@ const Index = () => {
       {/* ===== BONUSES ===== */}
       <section className="py-16 animate-fade-up">
         <div className="article-container space-y-14">
+          <h2 className="font-serif text-2xl md:text-3xl mb-10 text-foreground">
+            Что вы получаете дополнительно
+          </h2>
+
           {/* Bonus 1 */}
           <div>
             <h3 className="font-serif text-xl md:text-2xl mb-6 text-foreground">
@@ -1146,7 +1150,7 @@ const Index = () => {
           <p>
             Готовы перестать тушить пожары и начать их предотвращать?
           </p>
-          <p>Тогда вот что нужно сделать.</p>
+          <p>Прежде чем перейти к следующему шагу — давайте соберём всё вместе.</p>
         </div>
       </section>
 
@@ -1158,9 +1162,6 @@ const Index = () => {
           <h2 className="font-serif text-3xl md:text-4xl mb-6 text-foreground text-center">
             Что вы получаете
           </h2>
-          <p className="font-sans text-base md:text-lg text-muted-foreground text-center mb-14">
-            Давайте соберём всё вместе.
-          </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14">
             {/* Column 1 */}
