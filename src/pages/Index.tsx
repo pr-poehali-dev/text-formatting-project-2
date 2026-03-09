@@ -20,7 +20,7 @@ const CTAButton = () => (
 );
 
 const Divider = () => (
-  <div className="article-container py-4">
+  <div className="article-container py-2">
     <hr className="border-border" />
   </div>
 );
@@ -45,7 +45,7 @@ const Index = () => {
       <Divider />
 
       {/* ===== QUALIFICATION ===== */}
-      <section className="py-16 animate-fade-up">
+      <section className="py-8 animate-fade-up">
         <div className="article-container">
           <h2 className="font-serif text-2xl md:text-3xl mb-8 text-foreground">
             Эта страница для вас, если:
@@ -85,7 +85,7 @@ const Index = () => {
       <Divider />
 
       {/* ===== PROBLEM SECTION ===== */}
-      <section className="py-16 animate-fade-up">
+      <section className="py-8 animate-fade-up">
         <div className="article-container space-y-6 font-sans text-base md:text-lg leading-relaxed text-foreground">
           <p>Давайте честно.</p>
 
@@ -127,7 +127,7 @@ const Index = () => {
       <Divider />
 
       {/* ===== INTRIGUE / SOLUTION INTRO ===== */}
-      <section className="py-16 animate-fade-up">
+      <section className="py-8 animate-fade-up">
         <div className="article-container space-y-6 font-sans text-base md:text-lg leading-relaxed text-foreground">
           <p>Но что если бы существовал другой подход?</p>
 
@@ -153,7 +153,7 @@ const Index = () => {
       <Divider />
 
       {/* ===== FIRST SKEPTICISM ===== */}
-      <section className="py-16 animate-fade-up">
+      <section className="py-8 animate-fade-up">
         <div className="article-container space-y-6 font-sans text-base md:text-lg leading-relaxed text-foreground">
           <p>
             Возможно, вы уже обожглись на аутсорсерах. Слышали красивые
@@ -183,7 +183,7 @@ const Index = () => {
       <Divider />
 
       {/* ===== TRANSITION ===== */}
-      <section className="py-16 animate-fade-up">
+      <section className="py-8 animate-fade-up">
         <div className="article-container space-y-6 font-sans text-base md:text-lg leading-relaxed text-foreground">
           <p>
             Но прежде чем рассказать, как именно работает наша система, давайте
@@ -200,7 +200,7 @@ const Index = () => {
       <Divider />
 
       {/* ===== BLOCK U — SITUATION ===== */}
-      <section className="py-20 animate-fade-up">
+      <section className="py-10 animate-fade-up">
         <div className="article-container space-y-6 font-sans text-base md:text-lg leading-relaxed text-foreground">
           <p>Представьте обычный понедельник.</p>
 
@@ -240,7 +240,7 @@ const Index = () => {
       <Divider />
 
       {/* ===== SYMPTOMS CHECKLIST ===== */}
-      <section className="py-16 animate-fade-up">
+      <section className="py-8 animate-fade-up">
         <div className="article-container">
           <h2 className="font-serif text-2xl md:text-3xl mb-8 text-foreground">
             Узнаёте себя хотя бы в чём-то из этого?
@@ -300,7 +300,7 @@ const Index = () => {
       <Divider />
 
       {/* ===== BLAME REMOVAL ===== */}
-      <section className="py-16 animate-fade-up">
+      <section className="py-8 animate-fade-up">
         <div className="article-container space-y-6 font-sans text-base md:text-lg leading-relaxed text-foreground">
           <p>
             Это не потому, что вы плохой руководитель. И не потому, что ваш
@@ -339,7 +339,7 @@ const Index = () => {
       <Divider />
 
       {/* ===== MARIA'S STORY ===== */}
-      <section className="py-16 animate-fade-up">
+      <section className="py-8 animate-fade-up">
         <div className="article-container space-y-6 font-sans text-base md:text-lg leading-relaxed text-foreground">
           <p>
             Мы работаем со строительными компаниями 11 лет. Видели изнутри, как
@@ -355,16 +355,7 @@ const Index = () => {
 
           <p>
             Именно поэтому мы выстроили систему, которая работает по другим
-            правилам.
-          </p>
-        </div>
-      </section>
-
-      {/* ===== TRANSITION TO BLOCK E ===== */}
-      <section className="py-8 animate-fade-up">
-        <div className="article-container space-y-6 font-sans text-base md:text-lg leading-relaxed text-foreground">
-          <p>
-            Правила простые: не тушить пожары, а не давать им начаться.
+            правилам. Правила простые: не тушить пожары, а не давать им начаться.
           </p>
 
           <p>
@@ -378,7 +369,7 @@ const Index = () => {
       <Divider />
 
       {/* ===== BLOCK E — ATTACK ON OLD PARADIGM ===== */}
-      <section className="py-20 animate-fade-up">
+      <section className="py-10 animate-fade-up">
         <div className="article-container">
           <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl mb-10 text-foreground leading-snug">
             Почему ваш бухгалтер не виноват в том, что вы постоянно на нервах?
@@ -410,7 +401,7 @@ const Index = () => {
       <Divider />
 
       {/* ===== CONSTRUCTION SPECIFICS ===== */}
-      <section className="py-16 animate-fade-up">
+      <section className="py-8 animate-fade-up">
         <div className="article-container">
           <h3 className="font-serif text-xl md:text-2xl mb-10 text-foreground">
             Строительный бизнес устроен не так, как остальные.
@@ -476,7 +467,7 @@ const Index = () => {
       <Divider />
 
       {/* ===== CASH GAP ===== */}
-      <section className="py-16 animate-fade-up">
+      <section className="py-8 animate-fade-up">
         <div className="article-container space-y-6 font-sans text-base md:text-lg leading-relaxed text-foreground">
           <p>
             Но есть ещё одна ловушка, о которой не говорят вслух.
@@ -514,7 +505,7 @@ const Index = () => {
       <Divider />
 
       {/* ===== NEW PARADIGM ===== */}
-      <section className="py-16 animate-fade-up">
+      <section className="py-8 animate-fade-up">
         <div className="article-container space-y-6 font-sans text-base md:text-lg leading-relaxed text-foreground">
           <p>Всё это можно предотвратить.</p>
 
@@ -555,7 +546,7 @@ const Index = () => {
       <Divider />
 
       {/* ===== SYSTEM INTRO ===== */}
-      <section className="py-16 animate-fade-up">
+      <section className="py-8 animate-fade-up">
         <div className="article-container space-y-6 font-sans text-base md:text-lg leading-relaxed text-foreground">
           <p>
             Именно на этих принципах построена наша система «Протокол Анти-Блок».
@@ -580,7 +571,7 @@ const Index = () => {
       <Divider />
 
       {/* ===== BLOCK S — SYSTEM ===== */}
-      <section className="py-20 animate-fade-up">
+      <section className="py-10 animate-fade-up">
         <div className="article-container">
           <h2 className="font-serif text-3xl md:text-4xl mb-16 text-foreground text-center leading-snug">
             Система «Протокол Анти-Блок»: как это работает
@@ -767,7 +758,7 @@ const Index = () => {
       <Divider />
 
       {/* ===== CASE STUDY ===== */}
-      <section className="py-20 animate-fade-up">
+      <section className="py-10 animate-fade-up">
         <div className="article-container">
           <h2 className="font-serif text-2xl md:text-3xl mb-10 text-foreground">
             История компании «СтройМонтаж»
@@ -856,7 +847,7 @@ const Index = () => {
       <Divider />
 
       {/* ===== EXPERT SECTION ===== */}
-      <section className="py-16 animate-fade-up">
+      <section className="py-8 animate-fade-up">
         <div className="article-container">
           <h2 className="font-serif text-2xl md:text-3xl mb-10 text-foreground">
             Кто за этим стоит
@@ -939,7 +930,7 @@ const Index = () => {
       <Divider />
 
       {/* ===== BONUSES ===== */}
-      <section className="py-16 animate-fade-up">
+      <section className="py-8 animate-fade-up">
         <div className="article-container space-y-14">
           <h2 className="font-serif text-2xl md:text-3xl mb-10 text-foreground">
             Что вы получаете дополнительно
@@ -997,7 +988,7 @@ const Index = () => {
       <Divider />
 
       {/* ===== GUARANTEES ===== */}
-      <section className="py-16 animate-fade-up">
+      <section className="py-8 animate-fade-up">
         <div className="article-container">
           <h2 className="font-serif text-2xl md:text-3xl mb-8 text-foreground">
             Тройная железная гарантия
@@ -1063,7 +1054,7 @@ const Index = () => {
       <Divider />
 
       {/* ===== PRICE ===== */}
-      <section className="py-16 animate-fade-up">
+      <section className="py-8 animate-fade-up">
         <div className="article-container">
           <h2 className="font-serif text-2xl md:text-3xl mb-10 text-foreground">
             Сколько это стоит
@@ -1098,7 +1089,7 @@ const Index = () => {
       <Divider />
 
       {/* ===== COMPARISON ===== */}
-      <section className="py-16 animate-fade-up">
+      <section className="py-8 animate-fade-up">
         <div className="article-container space-y-6 font-sans text-base md:text-lg leading-relaxed text-foreground">
           <p className="font-semibold">Много это или мало?</p>
 
@@ -1145,7 +1136,7 @@ const Index = () => {
       <Divider />
 
       {/* ===== BLOCK T — SUMMARY ===== */}
-      <section className="py-20 animate-fade-up">
+      <section className="py-10 animate-fade-up">
         <div className="article-container">
           <h2 className="font-serif text-3xl md:text-4xl mb-6 text-foreground text-center">
             Что вы получаете
@@ -1253,7 +1244,7 @@ const Index = () => {
       <Divider />
 
       {/* ===== SCARCITY ===== */}
-      <section className="py-16 animate-fade-up">
+      <section className="py-8 animate-fade-up">
         <div className="article-container">
           <h2 className="font-serif text-2xl md:text-3xl mb-8 text-foreground">
             Важное ограничение
@@ -1288,7 +1279,7 @@ const Index = () => {
       <Divider />
 
       {/* ===== CTA SECTION ===== */}
-      <section className="py-16 animate-fade-up">
+      <section className="py-8 animate-fade-up">
         <div className="article-container">
           <h2 className="font-serif text-2xl md:text-3xl mb-8 text-foreground">
             Следующий шаг
@@ -1344,7 +1335,7 @@ const Index = () => {
       <Divider />
 
       {/* ===== FAQ ===== */}
-      <section className="py-16 animate-fade-up">
+      <section className="py-8 animate-fade-up">
         <div className="article-container">
           <h2 className="font-serif text-2xl md:text-3xl mb-10 text-foreground">
             Частые вопросы
@@ -1421,7 +1412,7 @@ const Index = () => {
       <Divider />
 
       {/* ===== FINAL EMOTIONAL APPEAL ===== */}
-      <section className="py-20 animate-fade-up">
+      <section className="py-10 animate-fade-up">
         <div className="article-container">
           <h2 className="font-serif text-2xl md:text-3xl mb-10 text-foreground">
             Последнее
