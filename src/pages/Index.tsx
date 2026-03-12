@@ -113,6 +113,8 @@ const SessionDialog = ({
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [sendError, setSendError] = useState("");
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
@@ -121,7 +123,7 @@ const SessionDialog = ({
     return newErrors;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const newErrors = validate();
     if (Object.keys(newErrors).length > 0) {
@@ -129,8 +131,26 @@ const SessionDialog = ({
       return;
     }
     setErrors({});
-    reachGoal("sessiya1");
-    setSubmitted(true);
+    setSendError("");
+    setLoading(true);
+
+    try {
+      const res = await fetch(
+        "https://functions.poehali.dev/f821fa0d-3f2d-4893-b5de-5c78cc97d4b1",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
+      if (!res.ok) throw new Error("Ошибка отправки");
+      reachGoal("sessiya1");
+      setSubmitted(true);
+    } catch {
+      setSendError("Не удалось отправить заявку. Попробуйте ещё раз.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleClose = () => {
@@ -233,12 +253,16 @@ const SessionDialog = ({
                   ))}
                 </div>
               </div>
+              {sendError && (
+                <p className="text-red-500 text-sm text-center">{sendError}</p>
+              )}
               <Button
                 type="submit"
                 className="w-full bg-accent text-accent-foreground hover:bg-accent/90 py-6 h-auto text-base font-semibold"
                 size="lg"
+                disabled={loading}
               >
-                Отправить заявку
+                {loading ? "Отправка..." : "Отправить заявку"}
               </Button>
             </form>
           </>
