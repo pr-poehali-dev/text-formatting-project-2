@@ -1,5 +1,13 @@
+import { useState } from "react";
 import Icon from "@/components/ui/icon";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 import {
   Accordion,
   AccordionItem,
@@ -7,17 +15,89 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 
-const CTAButton = () => (
-  <div className="flex justify-center py-10">
-    <Button
-      className="bg-accent text-accent-foreground hover:bg-accent/90 text-base px-10 py-6 h-auto font-sans font-semibold tracking-wide rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-      size="lg"
-    >
-      <Icon name="ArrowRight" className="mr-2 w-5 h-5" />
-      Записаться на стратегическую сессию
-    </Button>
-  </div>
+const messengers = [
+  {
+    name: "Telegram",
+    icon: "Send",
+    url: "https://t.me/your_username",
+    color: "bg-[#2AABEE] hover:bg-[#229ED9]",
+  },
+  {
+    name: "WhatsApp",
+    icon: "MessageCircle",
+    url: "https://wa.me/79001234567",
+    color: "bg-[#25D366] hover:bg-[#1DA851]",
+  },
+  {
+    name: "VK Мессенджер",
+    icon: "Mail",
+    url: "https://vk.me/your_id",
+    color: "bg-[#0077FF] hover:bg-[#0066DD]",
+  },
+];
+
+const MessengerDialog = ({
+  open,
+  onOpenChange,
+}: {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}) => (
+  <Dialog open={open} onOpenChange={onOpenChange}>
+    <DialogContent className="sm:max-w-[400px]">
+      <DialogHeader>
+        <DialogTitle className="font-serif text-xl text-center">
+          Выберите мессенджер
+        </DialogTitle>
+        <DialogDescription className="text-center">
+          Мы ответим в течение часа в рабочее время
+        </DialogDescription>
+      </DialogHeader>
+      <div className="flex flex-col gap-3 pt-2">
+        {messengers.map((m) => (
+          <a
+            key={m.name}
+            href={m.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${m.color} text-white rounded-lg px-6 py-4 flex items-center gap-3 font-sans font-medium text-base transition-colors`}
+          >
+            <Icon name={m.icon} className="w-5 h-5" />
+            {m.name}
+          </a>
+        ))}
+      </div>
+    </DialogContent>
+  </Dialog>
 );
+
+const CTAButton = () => {
+  const [messengerOpen, setMessengerOpen] = useState(false);
+
+  return (
+    <>
+      <div className="flex flex-col sm:flex-row justify-center items-center gap-4 py-10">
+        <Button
+          className="bg-accent text-accent-foreground hover:bg-accent/90 text-base px-10 py-6 h-auto font-sans font-semibold tracking-wide rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+          size="lg"
+        >
+          <Icon name="ArrowRight" className="mr-2 w-5 h-5" />
+          Записаться на стратегическую сессию
+        </Button>
+        <Button
+          variant="outline"
+          className="text-base px-8 py-6 h-auto font-sans font-medium tracking-wide rounded-lg border-2 transition-all duration-300"
+          size="lg"
+          onClick={() => setMessengerOpen(true)}
+        >
+          <Icon name="MessageSquare" className="mr-2 w-5 h-5" />
+          Написать в мессенджер
+        </Button>
+      </div>
+      <MessengerDialog open={messengerOpen} onOpenChange={setMessengerOpen} />
+    </>
+  );
+};
 
 const Divider = () => (
   <div className="article-container py-2">
