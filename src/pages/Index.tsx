@@ -264,6 +264,9 @@ const SessionDialog = ({
               >
                 {loading ? "Отправка..." : "Отправить заявку"}
               </Button>
+              <p className="text-xs text-muted-foreground text-center">
+                Нажимая кнопку, вы соглашаетесь на обработку персональных данных
+              </p>
             </form>
           </>
         )}
@@ -1759,7 +1762,7 @@ const Index = () => {
       </section>
 
       {/* ===== FOOTER ===== */}
-      <footer className="border-t border-border/50 mt-12 py-10">
+      <footer className="border-t border-border/50 mt-4 py-6">
         <div className="article-container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="space-y-2">
