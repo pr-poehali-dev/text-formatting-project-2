@@ -1137,76 +1137,91 @@ const Index = () => {
             Кто за этим стоит
           </h2>
 
-          <div className="space-y-6 font-sans text-base md:text-lg leading-relaxed text-foreground">
-            <p>
-              Меня зовут Мария, и я создала «Ваш персональный бухгалтер» 11 лет
-              назад.
-            </p>
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
+            <div className="w-full lg:w-2/5 flex-shrink-0">
+              <div className="relative">
+                <div className="absolute inset-0 bg-accent/15 rounded-2xl translate-x-3 translate-y-3" />
+                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-b from-accent/5 to-accent/20">
+                  <img
+                    src="https://cdn.poehali.dev/projects/c4d62a16-d5f7-4b19-9def-7a08ff13b2c9/bucket/6555d0bb-8916-4846-9fe5-bbec676e38e8.png"
+                    alt="Мария — основатель компании «Ваш персональный бухгалтер»"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              </div>
+            </div>
 
-            <p>
-              До этого я 26 лет работала главным бухгалтером. Прошла через
-              Новороссийский морской торговый порт, строительство крупных торговых
-              центров, олимпийские объекты в Сочи.
-            </p>
+            <div className="space-y-6 font-sans text-base md:text-lg leading-relaxed text-foreground">
+              <p>
+                Меня зовут Мария, и я создала «Ваш персональный бухгалтер» 11 лет
+                назад.
+              </p>
 
-            <p>
-              Я видела изнутри, как работают большие строительные проекты. И
-              видела, как они разваливаются из-за бухгалтерских ошибок, которых
-              можно было избежать.
-            </p>
+              <p>
+                До этого я 26 лет работала главным бухгалтером. Прошла через
+                Новороссийский морской торговый порт, строительство крупных торговых
+                центров, олимпийские объекты в Сочи.
+              </p>
 
-            <p>Сегодня у меня:</p>
+              <p>
+                Я видела изнутри, как работают большие строительные проекты. И
+                видела, как они разваливаются из-за бухгалтерских ошибок, которых
+                можно было избежать.
+              </p>
 
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3">
-                <Icon
-                  name="Award"
-                  className="w-5 h-5 text-accent shrink-0 mt-0.5"
-                />
-                <span>
-                  Два высших образования: бухгалтерское и юридическое
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Icon
-                  name="Award"
-                  className="w-5 h-5 text-accent shrink-0 mt-0.5"
-                />
-                <span>
-                  Членство в Палате налоговых консультантов Москвы
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Icon
-                  name="Award"
-                  className="w-5 h-5 text-accent shrink-0 mt-0.5"
-                />
-                <span>
-                  Действующая судебная практика по налоговым спорам
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Icon
-                  name="Award"
-                  className="w-5 h-5 text-accent shrink-0 mt-0.5"
-                />
-                <span>Статус партнёра 1С</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Icon
-                  name="Award"
-                  className="w-5 h-5 text-accent shrink-0 mt-0.5"
-                />
-                <span>
-                  Опыт преподавания на курсах для главных бухгалтеров
-                </span>
-              </li>
-            </ul>
+              <p>Сегодня у меня:</p>
 
-            <p>
-              Но главное — я собрала команду, которая работает по тем же
-              принципам. Не «сдать отчёт и забыть», а «защитить бизнес клиента».
-            </p>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <Icon
+                    name="Award"
+                    className="w-5 h-5 text-accent shrink-0 mt-0.5"
+                  />
+                  <span>
+                    Два высших образования: бухгалтерское и юридическое
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Icon
+                    name="Award"
+                    className="w-5 h-5 text-accent shrink-0 mt-0.5"
+                  />
+                  <span>
+                    Членство в Палате налоговых консультантов Москвы
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Icon
+                    name="Award"
+                    className="w-5 h-5 text-accent shrink-0 mt-0.5"
+                  />
+                  <span>
+                    Действующая судебная практика по налоговым спорам
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Icon
+                    name="Award"
+                    className="w-5 h-5 text-accent shrink-0 mt-0.5"
+                  />
+                  <span>Статус партнёра 1С</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Icon
+                    name="Award"
+                    className="w-5 h-5 text-accent shrink-0 mt-0.5"
+                  />
+                  <span>
+                    Опыт преподавания на курсах для главных бухгалтеров
+                  </span>
+                </li>
+              </ul>
+
+              <p>
+                Но главное — я собрала команду, которая работает по тем же
+                принципам. Не «сдать отчёт и забыть», а «защитить бизнес клиента».
+              </p>
+            </div>
           </div>
         </div>
       </section>
