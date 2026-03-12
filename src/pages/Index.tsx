@@ -38,21 +38,14 @@ const messengers = [
     color: "bg-[#2AABEE] hover:bg-[#229ED9]",
   },
   {
-    name: "WhatsApp",
-    icon: "MessageCircle",
-    url: "https://wa.me/79120032181",
-    color: "bg-[#25D366] hover:bg-[#1DA851]",
-  },
-  {
     name: "MAX",
     icon: "Mail",
-    url: "https://max.ru/89120032181",
+    url: "https://max.ru/79120032181",
     color: "bg-[#168DE2] hover:bg-[#1277C0]",
   },
 ];
 
 const channelOptions = [
-  { id: "whatsapp", label: "WhatsApp", icon: "MessageCircle" },
   { id: "telegram", label: "Telegram", icon: "Send" },
   { id: "max", label: "MAX", icon: "Mail" },
   { id: "phone", label: "Телефон", icon: "Phone" },
