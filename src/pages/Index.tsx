@@ -1757,6 +1757,38 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* ===== FOOTER ===== */}
+      <footer className="border-t border-border/50 mt-12 py-10">
+        <div className="article-container">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="space-y-2">
+              <p className="font-serif text-lg font-semibold text-foreground">
+                Протокол Анти-Блок
+              </p>
+              <p className="font-sans text-sm text-muted-foreground">
+                Профессиональная бухгалтерская защита для строительного бизнеса
+              </p>
+            </div>
+            <div className="space-y-2">
+              <p className="font-sans text-sm text-foreground">
+                ООО «Ваш Персональный Бухгалтер»
+              </p>
+              <p className="font-sans text-sm text-muted-foreground">
+                ИНН: 9721242210
+              </p>
+            </div>
+            <div className="space-y-2">
+              <a href="#" className="block font-sans text-sm text-foreground hover:text-accent transition-colors">
+                Политика конфиденциальности
+              </a>
+              <a href="#" className="block font-sans text-sm text-foreground hover:text-accent transition-colors">
+                Пользовательское соглашение
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </article>
   );
 };
