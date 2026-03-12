@@ -34,19 +34,19 @@ const messengers = [
   {
     name: "Telegram",
     icon: "Send",
-    url: "https://t.me/your_username",
+    url: "https://t.me/+79120032181",
     color: "bg-[#2AABEE] hover:bg-[#229ED9]",
   },
   {
     name: "WhatsApp",
     icon: "MessageCircle",
-    url: "https://wa.me/79001234567",
+    url: "https://wa.me/79120032181",
     color: "bg-[#25D366] hover:bg-[#1DA851]",
   },
   {
     name: "MAX",
     icon: "Mail",
-    url: "https://max.ru/your_id",
+    url: "https://max.ru/89120032181",
     color: "bg-[#168DE2] hover:bg-[#1277C0]",
   },
 ];
