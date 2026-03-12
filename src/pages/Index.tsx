@@ -40,7 +40,7 @@ const messengers = [
   {
     name: "MAX",
     icon: "Mail",
-    url: "https://max.ru/79120032181",
+    url: "https://max.ru/u/f9LHodD0cOK0DpfRIJqdv315aqhwKVGmepqspth7WB1LcW3cUdQW880KWDM",
     color: "bg-[#168DE2] hover:bg-[#1277C0]",
   },
 ];
