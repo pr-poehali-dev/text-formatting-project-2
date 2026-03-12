@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   Dialog,
   DialogContent,
@@ -14,6 +15,20 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
+
+declare global {
+  interface Window {
+    ym?: (id: number, action: string, target: string) => void;
+  }
+}
+
+const METRIKA_ID = 101026698;
+
+const reachGoal = (target: string) => {
+  if (window.ym) {
+    window.ym(METRIKA_ID, "reachGoal", target);
+  }
+};
 
 const messengers = [
   {
@@ -29,11 +44,18 @@ const messengers = [
     color: "bg-[#25D366] hover:bg-[#1DA851]",
   },
   {
-    name: "VK Мессенджер",
+    name: "MAX",
     icon: "Mail",
-    url: "https://vk.me/your_id",
-    color: "bg-[#0077FF] hover:bg-[#0066DD]",
+    url: "https://max.ru/your_id",
+    color: "bg-[#168DE2] hover:bg-[#1277C0]",
   },
+];
+
+const channelOptions = [
+  { id: "whatsapp", label: "WhatsApp", icon: "MessageCircle" },
+  { id: "telegram", label: "Telegram", icon: "Send" },
+  { id: "max", label: "MAX", icon: "Mail" },
+  { id: "phone", label: "Телефон", icon: "Phone" },
 ];
 
 const MessengerDialog = ({
@@ -42,37 +64,193 @@ const MessengerDialog = ({
 }: {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-}) => (
-  <Dialog open={open} onOpenChange={onOpenChange}>
-    <DialogContent className="sm:max-w-[400px]">
-      <DialogHeader>
-        <DialogTitle className="font-serif text-xl text-center">
-          Выберите мессенджер
-        </DialogTitle>
-        <DialogDescription className="text-center">
-          Мы ответим в течение часа в рабочее время
-        </DialogDescription>
-      </DialogHeader>
-      <div className="flex flex-col gap-3 pt-2">
-        {messengers.map((m) => (
-          <a
-            key={m.name}
-            href={m.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`${m.color} text-white rounded-lg px-6 py-4 flex items-center gap-3 font-sans font-medium text-base transition-colors`}
-          >
-            <Icon name={m.icon} className="w-5 h-5" />
-            {m.name}
-          </a>
-        ))}
-      </div>
-    </DialogContent>
-  </Dialog>
-);
+}) => {
+  const handleMessengerClick = (url: string) => {
+    reachGoal("messendjer1");
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
+  return (
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent className="sm:max-w-[400px]">
+        <DialogHeader>
+          <DialogTitle className="font-serif text-xl text-center">
+            Выберите мессенджер
+          </DialogTitle>
+          <DialogDescription className="text-center">
+            Мы ответим в течение часа в рабочее время
+          </DialogDescription>
+        </DialogHeader>
+        <div className="flex flex-col gap-3 pt-2">
+          {messengers.map((m) => (
+            <button
+              key={m.name}
+              onClick={() => handleMessengerClick(m.url)}
+              className={`${m.color} text-white rounded-lg px-6 py-4 flex items-center gap-3 font-sans font-medium text-base transition-colors cursor-pointer`}
+            >
+              <Icon name={m.icon} className="w-5 h-5" />
+              {m.name}
+            </button>
+          ))}
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+};
+
+const SessionDialog = ({
+  open,
+  onOpenChange,
+}: {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    company: "",
+    phone: "",
+    channel: "",
+  });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submitted, setSubmitted] = useState(false);
+
+  const validate = () => {
+    const newErrors: Record<string, string> = {};
+    if (!formData.name.trim()) newErrors.name = "Укажите ФИО";
+    if (!formData.phone.trim()) newErrors.phone = "Укажите телефон";
+    return newErrors;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const newErrors = validate();
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+    setErrors({});
+    reachGoal("sessiya1");
+    setSubmitted(true);
+  };
+
+  const handleClose = () => {
+    onOpenChange(false);
+    setTimeout(() => {
+      setSubmitted(false);
+      setFormData({ name: "", company: "", phone: "", channel: "" });
+      setErrors({});
+    }, 300);
+  };
+
+  return (
+    <Dialog open={open} onOpenChange={handleClose}>
+      <DialogContent className="sm:max-w-[460px]">
+        {submitted ? (
+          <div className="text-center py-6 space-y-4">
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto">
+              <Icon name="Check" className="w-8 h-8 text-green-600" />
+            </div>
+            <DialogHeader>
+              <DialogTitle className="font-serif text-xl">
+                Заявка отправлена
+              </DialogTitle>
+              <DialogDescription>
+                Мы свяжемся с вами в ближайшее время
+              </DialogDescription>
+            </DialogHeader>
+            <Button onClick={handleClose} className="mt-4">
+              Закрыть
+            </Button>
+          </div>
+        ) : (
+          <>
+            <DialogHeader>
+              <DialogTitle className="font-serif text-xl text-center">
+                Запись на стратегическую сессию
+              </DialogTitle>
+              <DialogDescription className="text-center">
+                Заполните форму и мы свяжемся с вами
+              </DialogDescription>
+            </DialogHeader>
+            <form onSubmit={handleSubmit} className="space-y-4 pt-2">
+              <div>
+                <Input
+                  placeholder="ФИО *"
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
+                  className={errors.name ? "border-red-500" : ""}
+                />
+                {errors.name && (
+                  <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                )}
+              </div>
+              <div>
+                <Input
+                  placeholder="Название компании"
+                  value={formData.company}
+                  onChange={(e) =>
+                    setFormData({ ...formData, company: e.target.value })
+                  }
+                />
+              </div>
+              <div>
+                <Input
+                  placeholder="Телефон *"
+                  type="tel"
+                  value={formData.phone}
+                  onChange={(e) =>
+                    setFormData({ ...formData, phone: e.target.value })
+                  }
+                  className={errors.phone ? "border-red-500" : ""}
+                />
+                {errors.phone && (
+                  <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+                )}
+              </div>
+              <div>
+                <p className="text-sm font-medium text-foreground mb-2">
+                  Удобный канал связи:
+                </p>
+                <div className="grid grid-cols-2 gap-2">
+                  {channelOptions.map((ch) => (
+                    <button
+                      key={ch.id}
+                      type="button"
+                      onClick={() =>
+                        setFormData({ ...formData, channel: ch.id })
+                      }
+                      className={`flex items-center gap-2 px-3 py-2.5 rounded-lg border text-sm font-medium transition-colors cursor-pointer ${
+                        formData.channel === ch.id
+                          ? "border-accent bg-accent/10 text-accent-foreground"
+                          : "border-border hover:border-accent/50 text-muted-foreground"
+                      }`}
+                    >
+                      <Icon name={ch.icon} className="w-4 h-4" />
+                      {ch.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <Button
+                type="submit"
+                className="w-full bg-accent text-accent-foreground hover:bg-accent/90 py-6 h-auto text-base font-semibold"
+                size="lg"
+              >
+                Отправить заявку
+              </Button>
+            </form>
+          </>
+        )}
+      </DialogContent>
+    </Dialog>
+  );
+};
 
 const CTAButton = () => {
   const [messengerOpen, setMessengerOpen] = useState(false);
+  const [sessionOpen, setSessionOpen] = useState(false);
 
   return (
     <>
@@ -80,6 +258,7 @@ const CTAButton = () => {
         <Button
           className="bg-accent text-accent-foreground hover:bg-accent/90 text-base px-10 py-6 h-auto font-sans font-semibold tracking-wide rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
           size="lg"
+          onClick={() => setSessionOpen(true)}
         >
           <Icon name="ArrowRight" className="mr-2 w-5 h-5" />
           Записаться на стратегическую сессию
@@ -94,6 +273,7 @@ const CTAButton = () => {
           Написать в мессенджер
         </Button>
       </div>
+      <SessionDialog open={sessionOpen} onOpenChange={setSessionOpen} />
       <MessengerDialog open={messengerOpen} onOpenChange={setMessengerOpen} />
     </>
   );
