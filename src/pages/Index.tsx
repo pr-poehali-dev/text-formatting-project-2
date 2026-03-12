@@ -1138,7 +1138,7 @@ const Index = () => {
           </h2>
 
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
-            <div className="w-full lg:w-2/5 flex-shrink-0">
+            <div className="w-full lg:w-2/5 flex-shrink-0 lg:sticky lg:top-24 lg:self-start">
               <div className="relative">
                 <div className="absolute inset-0 bg-accent/15 rounded-2xl translate-x-3 translate-y-3" />
                 <div className="relative overflow-hidden rounded-2xl bg-gradient-to-b from-accent/5 to-accent/20">
